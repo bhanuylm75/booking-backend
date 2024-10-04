@@ -1,4 +1,4 @@
-const apiKey = import.meta.env.VITE_GOOGLE_API_KEY;
+const apiKey = "AIzaSyBJAbu7x6Wfvc971T8DFTD0J7i8ruzXqgw"
 const places = [
   "Goa",
   "Manali",
