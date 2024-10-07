@@ -20,11 +20,11 @@ const PORT =  5000;
 app.use(express.json());
 app.use(cors())
 app.use(cookieParser())
-const apiKey = "AIzaSyBJAbu7x6Wfvc971T8DFTD0J7i8ruzXqgw"
+const apiKey = process.env.apiKey
 let client;
 const connectDB = async () => {
   try {
-    client=await mongoose.connect("mongodb+srv://bhanuylm75:bhanu@clusterwin.1hwtt.mongodb.net/booking?retryWrites=true&w=majority")
+    client=await mongoose.connect(process.env.MONGODB_URI)
     
   } catch (error) {
     console.error('Error connecting to MongoDB:', error.message);

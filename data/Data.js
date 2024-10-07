@@ -1,4 +1,7 @@
-const apiKey = "AIzaSyBJAbu7x6Wfvc971T8DFTD0J7i8ruzXqgw"
+import dotenv from "dotenv";
+dotenv.config();
+
+const apiKey = process.env.apiKey
 const places = [
   "Goa",
   "Manali",

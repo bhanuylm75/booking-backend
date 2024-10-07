@@ -1,4 +1,6 @@
-const apiKey = "AIzaSyBJAbu7x6Wfvc971T8DFTD0J7i8ruzXqgw"
+import dotenv from "dotenv";
+dotenv.config();
+
 import axios from "axios"
 
 const destinations = [
@@ -69,6 +71,7 @@ const destinations = [
     description: "Munsiyari, located in Uttarakhand, is a secluded hill station with breathtaking views of the Panchachuli Peaks. It is known for its offbeat appeal, with minimal commercialization and a focus on natural beauty. Munsiyari serves as a base for trekking expeditions into the greater Himalayan ranges, making it popular with trekkers and adventure seekers. The town’s remoteness and serene environment make it perfect for travelers seeking solitude."
   }
 ];
+const apiKey = process.env.apiKey
 
 
 async function getPlacePhotos(placeName) {
