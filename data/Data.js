@@ -1,7 +1,8 @@
 import dotenv from "dotenv";
 dotenv.config();
 
-const apiKey = process.env.apiKey
+const apiKey = process.env.apikey
+console.log(apiKey)
 const places = [
   "Goa",
   "Manali",

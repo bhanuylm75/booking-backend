@@ -5,73 +5,133 @@ import axios from "axios"
 
 const destinations = [
   {
-    name: "Tirthan Valley",
-    latitude: 31.6088,
-    longitude: 77.4490,
-    description: "Tirthan Valley, located in Himachal Pradesh, is a serene destination untouched by mass tourism. Nestled in the Great Himalayan National Park, it offers pristine rivers, dense forests, and picturesque villages. Ideal for trekking, fishing, and nature walks, Tirthan Valley is a haven for nature lovers. The local culture and simple mountain life add to its charm. The valley is also home to unique flora and fauna, making it perfect for wildlife enthusiasts."
+    name: "Varanasi",
+    latitude: 25.3176,
+    longitude: 82.9739,
+    description: "Varanasi, located in Uttar Pradesh, is one of the oldest cities in the world and a major pilgrimage site for Hindus. It is known for its sacred Ganges River, where devotees perform rituals and seek spiritual purification. The Kashi Vishwanath Temple and the Ganga Aarti are key attractions."
   },
   {
-    name: "Ziro Valley",
-    latitude: 27.5448,
-    longitude: 93.8573,
-    description: "Ziro Valley, located in Arunachal Pradesh, is known for its lush green paddy fields and the unique culture of the Apatani tribe. Far from the usual tourist circuits, Ziro offers a peaceful retreat with its cool climate and scenic landscapes. The Ziro Music Festival, an annual event, brings together musicians and travelers for a celebration of music and nature. Ziro’s offbeat charm lies in its untouched natural beauty and tribal heritage."
+    name: "Rameswaram",
+    latitude: 9.2881,
+    longitude: 79.3129,
+    description: "Rameswaram, located in Tamil Nadu, is one of the holiest sites in Hinduism. It is famous for the Ramanathaswamy Temple, dedicated to Lord Shiva, and is considered one of the Char Dham pilgrimage destinations. The temple is known for its long corridors and sacred water tanks."
   },
   {
-    name: "Spiti Valley",
-    latitude: 32.2462,
-    longitude: 78.0170,
-    description: "Spiti Valley, a cold desert mountain valley in Himachal Pradesh, is one of India’s most remote and least explored regions. Known for its stark landscapes, ancient monasteries, and rugged terrain, it offers an adventurous escape. Key monasteries like Key and Tabo dot the valley. Spiti is also a great destination for trekking, camping, and spotting unique wildlife. Its offbeat nature makes it perfect for those seeking solitude and raw beauty."
+    name: "Haridwar",
+    latitude: 29.9457,
+    longitude: 78.1642,
+    description: "Haridwar, located in Uttarakhand, is a major pilgrimage site where the Ganges River emerges from the Himalayas. The city hosts the Kumbh Mela, attracting millions of pilgrims. Key spots include Har Ki Pauri, Chandi Devi Temple, and Mansa Devi Temple."
   },
   {
-    name: "Mawlynnong",
-    latitude: 25.2000,
-    longitude: 91.8830,
-    description: "Mawlynnong, located in Meghalaya, is known as the cleanest village in Asia. This charming village offers a glimpse into the well-preserved local Khasi culture and showcases their sustainable way of life. With beautiful bamboo huts, lush greenery, and living root bridges nearby, Mawlynnong is a perfect offbeat destination. The village is also close to the stunning Dawki River, known for its crystal-clear waters, adding to the allure of this quiet retreat."
+    name: "Tirupati",
+    latitude: 13.6288,
+    longitude: 79.4192,
+    description: "Tirupati, in Andhra Pradesh, is one of the richest and most visited pilgrimage destinations in India. The Tirumala Venkateswara Temple, dedicated to Lord Venkateswara, is situated on the Tirumala Hills. Devotees come from across the globe to seek blessings and offer prayers."
   },
   {
-    name: "Majuli",
-    latitude: 27.0306,
-    longitude: 94.2177,
-    description: "Majuli, in Assam, is the world’s largest river island, located on the Brahmaputra River. It is a hidden gem with rich culture, heritage, and natural beauty. The island is home to unique Satras (monastic institutions) and is known for its Vaishnavite traditions. Majuli’s untouched landscapes, traditional boat rides, and peaceful villages make it a great offbeat destination. The island is also a biodiversity hotspot, especially for birdwatchers."
+    name: "Amritsar",
+    latitude: 31.6340,
+    longitude: 74.8723,
+    description: "Amritsar, located in Punjab, is the spiritual center of Sikhism. The Golden Temple (Harmandir Sahib) is the most revered shrine for Sikhs. Known for its stunning architecture and serene atmosphere, the temple complex also houses the holy Sikh scripture, Guru Granth Sahib."
   },
   {
-    name: "Gurez Valley",
-    latitude: 34.6254,
-    longitude: 74.8267,
-    description: "Gurez Valley, located in Jammu and Kashmir, is a remote and picturesque valley nestled in the high Himalayas. Surrounded by snow-covered peaks, alpine forests, and the Kishanganga River, Gurez is known for its natural beauty and tranquility. The valley is home to the Dard-Shina tribe, known for their unique culture and language. The rugged terrain and offbeat charm make Gurez an excellent choice for those seeking an unexplored paradise."
+    name: "Vaishno Devi",
+    latitude: 33.0290,
+    longitude: 74.9490,
+    description: "The Vaishno Devi Temple in Jammu and Kashmir is one of the most visited pilgrimage sites in India. Located in the Trikuta Mountains, devotees undertake a trek to the cave temple, where they seek blessings from the goddess Vaishno Devi, believed to fulfill wishes."
   },
   {
-    name: "Chopta",
-    latitude: 30.3445,
-    longitude: 79.0416,
-    description: "Chopta, located in Uttarakhand, is a hidden gem often called the 'Mini Switzerland' of India. It is a small region of meadows and evergreen forests, and a base for trekking to Tungnath and Chandrashila peaks. Chopta is an ideal offbeat destination for trekking, bird watching, and camping. With its breathtaking views of the Himalayas, it remains largely untouched by commercial tourism, making it a serene retreat for nature lovers."
+    name: "Shirdi",
+    latitude: 19.7667,
+    longitude: 74.4774,
+    description: "Shirdi, located in Maharashtra, is the holy town associated with Sai Baba, a revered saint known for his teachings of love, unity, and compassion. The Shirdi Sai Baba Temple attracts millions of devotees who come to seek blessings and pay homage to the saint."
   },
   {
-    name: "Dzukou Valley",
-    latitude: 25.5645,
-    longitude: 94.1201,
-    description: "Dzukou Valley, located on the border of Nagaland and Manipur, is a stunning valley known for its rolling hills and seasonal flowers. The valley, especially beautiful during the monsoon when it blooms with exotic lilies, is perfect for trekking and camping. Dzukou remains offbeat due to its remote location, offering a peaceful escape from the crowds. The valley is also sacred to the local tribes and holds cultural significance."
+    name: "Bodh Gaya",
+    latitude: 24.6953,
+    longitude: 84.9917,
+    description: "Bodh Gaya in Bihar is the most important pilgrimage site for Buddhists. It is the place where Gautama Buddha attained enlightenment under the Bodhi Tree. The Mahabodhi Temple, a UNESCO World Heritage Site, is a significant attraction for visitors from around the world."
   },
   {
-    name: "Hampi",
-    latitude: 15.3350,
-    longitude: 76.4600,
-    description: "Hampi, located in Karnataka, is an ancient village that is a UNESCO World Heritage Site. It is famous for its stunning ruins of the Vijayanagara Empire, boulder-strewn landscapes, and unique rock formations. Despite its historical significance, Hampi retains an offbeat charm due to its remote location and laid-back vibe. The village attracts history buffs, backpackers, and spiritual seekers who enjoy the blend of history, nature, and culture."
+    name: "Puri",
+    latitude: 19.8135,
+    longitude: 85.8312,
+    description: "Puri, located in Odisha, is famous for the Jagannath Temple, dedicated to Lord Jagannath. It is one of the Char Dham pilgrimage sites. The annual Rath Yatra, where the deities are carried in massive chariots, draws huge crowds of devotees from across the globe."
   },
   {
-    name: "Tawang",
-    latitude: 27.5845,
-    longitude: 91.8749,
-    description: "Tawang, located in Arunachal Pradesh, is known for its Buddhist culture, stunning monasteries, and breathtaking landscapes. The Tawang Monastery, one of the largest in India, is a spiritual and cultural hub. Tawang is an offbeat destination due to its remote location in the high Himalayas, attracting only those willing to venture into the less-explored regions. The town offers snow-capped mountains, waterfalls, and serene lakes, making it a hidden gem."
+    name: "Ajmer",
+    latitude: 26.4499,
+    longitude: 74.6399,
+    description: "Ajmer, located in Rajasthan, is home to the Ajmer Sharif Dargah, the shrine of the Sufi saint Moinuddin Chishti. It is a popular pilgrimage site for both Muslims and people of other faiths. The dargah is known for its spiritual ambiance and annual Urs festival."
   },
   {
-    name: "Munsiyari",
-    latitude: 30.0680,
-    longitude: 80.2390,
-    description: "Munsiyari, located in Uttarakhand, is a secluded hill station with breathtaking views of the Panchachuli Peaks. It is known for its offbeat appeal, with minimal commercialization and a focus on natural beauty. Munsiyari serves as a base for trekking expeditions into the greater Himalayan ranges, making it popular with trekkers and adventure seekers. The town’s remoteness and serene environment make it perfect for travelers seeking solitude."
+    name: "Dwarka",
+    latitude: 22.2465,
+    longitude: 68.9685,
+    description: "Dwarka, in Gujarat, is one of the Char Dham pilgrimage sites and is associated with Lord Krishna. The Dwarkadhish Temple, situated on the banks of the Gomti River, is the main attraction, along with the ancient temple architecture and the scenic coastal surroundings."
+  },
+  {
+    name: "Kedarnath",
+    latitude: 30.7346,
+    longitude: 79.0669,
+    description: "Kedarnath, located in Uttarakhand, is one of the most important Shiva temples in India and is part of the Char Dham pilgrimage. The Kedarnath Temple is situated at a high altitude in the Himalayas and is visited by thousands of devotees, despite its challenging trek."
+  },
+  {
+    name: "Somnath",
+    latitude: 20.8880,
+    longitude: 70.4017,
+    description: "Somnath, located in Gujarat, is one of the twelve Jyotirlinga shrines dedicated to Lord Shiva. The Somnath Temple, on the shores of the Arabian Sea, has been rebuilt several times and is known for its grandeur and significance in Hindu mythology."
+  },
+  {
+    name: "Rishikesh",
+    latitude: 30.0869,
+    longitude: 78.2676,
+    description: "Rishikesh, located in Uttarakhand, is known as the 'Yoga Capital of the World' and is a major pilgrimage site on the banks of the Ganges River. The town is also famous for its ashrams, yoga centers, and temples like the Triveni Ghat and Neelkanth Mahadev Temple."
+  },
+  {
+    name: "Mathura",
+    latitude: 27.4924,
+    longitude: 77.6737,
+    description: "Mathura, in Uttar Pradesh, is believed to be the birthplace of Lord Krishna and is one of the most important pilgrimage sites for Hindus. The Krishna Janmabhoomi Temple, dedicated to the deity, and the vibrant celebrations of Janmashtami are key attractions."
+  },
+  {
+    name: "Kashi Vishwanath Temple",
+    latitude: 25.3109,
+    longitude: 82.9732,
+    description: "Located in Varanasi, Uttar Pradesh, Kashi Vishwanath Temple is one of the twelve Jyotirlingas of Lord Shiva. It is a highly revered site for Hindus, and millions of devotees visit the temple annually to offer prayers and perform rituals by the Ganges."
+  },
+  {
+    name: "Sabarimala",
+    latitude: 9.4420,
+    longitude: 77.0707,
+    description: "Sabarimala, located in Kerala, is one of the most visited pilgrimage sites in India, dedicated to Lord Ayyappa. Pilgrims undertake a rigorous journey through the dense forests to reach the hilltop temple, following strict spiritual practices and customs."
+  },
+  {
+    name: "Kanchipuram",
+    latitude: 12.8352,
+    longitude: 79.7036,
+    description: "Kanchipuram, located in Tamil Nadu, is one of the seven sacred cities of Hinduism. It is renowned for its ancient temples, such as the Ekambareswarar and Kailasanathar Temples, and is an important pilgrimage site for devotees of Lord Shiva and Lord Vishnu."
+  },
+  {
+    name: "Hemkund Sahib",
+    latitude: 30.6860,
+    longitude: 79.6160,
+    description: "Hemkund Sahib, in Uttarakhand, is a sacred pilgrimage site for Sikhs. Located at a high altitude in the Himalayas, the gurudwara is situated near a glacial lake. Devotees make a challenging trek to reach the site, which offers spiritual solace amidst stunning natural beauty."
+  },
+  {
+    name: "Palitana",
+    latitude: 21.5250,
+    longitude: 71.8239,
+    description: "Palitana, in Gujarat, is a major pilgrimage site for Jains. The Shatrunjaya Hill is home to over 900 beautifully carved Jain temples, making it one of the most sacred sites for the Jain community. Pilgrims undertake a long climb to visit the temples and seek blessings."
   }
 ];
-const apiKey = process.env.apiKey
+
+
+
+
+
+
+const apiKey = process.env.apikey
 
 
 async function getPlacePhotos(placeName) {
@@ -133,14 +193,15 @@ export async function fetchalleleven() {
 
 export const fetchNearbystays = async (lat, lng,typee,radiuss,keywordd) => {
   //console.log(latitude,longitude)
-  
+ 
   const radius = radiuss||50000;
   const type = typee||"lodging";
-  const keyword = keywordd||""
-  const url = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${lat},${lng}&radius=${radius}&type=${type}&keyword=${keyword}&key=${apiKey}`;
+  //const keyword = keywordd||""
+  const url = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${lat},${lng}&radius=${radius}&type=${type}&key=${apiKey}`;
   
   try{
     const {data}= await axios.get(url)
+    console.log(data)
     return data?.results;
     //console.log(data?.results)
 

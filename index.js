@@ -18,9 +18,14 @@ const app = express();
 dotenv.config();
 const PORT =  5000;
 app.use(express.json());
-app.use(cors())
+app.use(cors({
+  origin: '*', // Allows all origins
+  credentials: true // Allows cookies to be sent with requests
+}));
+
 app.use(cookieParser())
-const apiKey = process.env.apiKey
+
+const apiKey = process.env.apikey
 let client;
 const connectDB = async () => {
   try {
@@ -85,34 +90,15 @@ app.post("/login",async (req,res,next)=>{
 })
 
 
-const tripData = {
-  destination: 'Hawaii',
-  price: 1200,
-  duration: '7 days',
-  availableSeats: 25
-};
-app.get("/getalltrips" ,async (req, res)=>{
-  try{
-   const response=await fetchAllPlacePhotos()
-   const db = mongoose.connection.db; // This gets the underlying native MongoDB connection
-    const collection = db.collection('alltripsdata');
 
-    const result = await collection.insertMany(response);
-    res.send(response);
-   //console.log(response)
-  }
-  catch(err){
-    console.error(err.message);
-    res.status(500).send("Server Error");
-  }
-})
+
 
 app.post("/push/offbeat" ,async (req, res)=>{
   try{
    const response=await fetchalleleven()
    console.log(response)
    const db = mongoose.connection.db; // This gets the underlying native MongoDB connection
-    const collection = db.collection('offbeatdata');
+    const collection = db.collection('topheritage');
 
     const result = await collection.insertMany(response);
     res.send(response);
@@ -144,22 +130,12 @@ app.get("/gettrips", async (req, res) => {
 
 
 
-app.get("/test", async (req,res)=>{
-  const params = {
-    access_key: 'c4ed18fced545727b9351e431035771e'
-  }
-  const response=await axios.get('https://api.aviationstack.com/v1/flights', {params})
-  //console.log(response.data)
-  res.send(res)
-})
-// Start the server
-
 
 // api for getting the stays  according to your location
 
 app.get("/api/getstaysaround",async (req,res)=>{
   const { lat, lng } = req.query;
-  console.log(lat,lng)
+  //console.log(lat,lng)
   try{
     const response=await fetchNearbystays(lat,lng)
     console.log(response)
