@@ -37,6 +37,10 @@ const connectDB = async () => {
   }
 };
 
+app.get("/a", (req, res) => {
+  res.send("mggg")
+})
+
 app.post("/signup",async (req, res) => {
   try {
     const existingUser = await User.findOne({ email });
@@ -135,17 +139,8 @@ app.get("/gettrips", async (req, res) => {
 
 app.get("/api/getstaysaround",async (req,res)=>{
   const { lat, lng } = req.query;
-  //console.log(lat,lng)
-  try{
-    const response=await fetchNearbystays(lat,lng)
-    console.log(response)
-    res.send(response)
-
-  }
-  catch(err){
-    console.error(err.message);
-    res.status(500).send("Server Error");
-  }
+  res.send("ok")
+ 
 
 
 })

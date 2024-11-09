@@ -192,12 +192,12 @@ export async function fetchalleleven() {
 
 
 export const fetchNearbystays = async (lat, lng,typee,radiuss,keywordd) => {
-  //console.log(latitude,longitude)
+  console.log(lat,lng)
  
   const radius = radiuss||50000;
   const type = typee||"lodging";
   //const keyword = keywordd||""
-  const url = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${lat},${lng}&radius=${radius}&type=${type}&key=${apiKey}`;
+  const url = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${13.0843},${80.2705}&radius=${radius}&type=${type}&key=${apiKey}`;
   
   try{
     const {data}= await axios.get(url)
