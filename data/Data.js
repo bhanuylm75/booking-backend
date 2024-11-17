@@ -19,8 +19,16 @@ const places = [
   "Nainital",
   "Mussoorie",
   "Chikmagalur",
-  "Shillong"
+  "Shillong",
+  "Agra",
+  "Varanasi",
+  "Rishikesh",
+  "Amritsar",
+  "Jaipur",
+  "Jodhpur",
+  "Udaipur"
 ];
+
 
 const locationsData = {
   "Goa": { description: "Famous for its pristine beaches, vibrant nightlife, Portuguese heritage, and laid-back atmosphere.", latitude: 15.2993, longitude: 74.1240, state: "Goa" },
@@ -38,8 +46,16 @@ const locationsData = {
   "Nainital": { description: "Known for its beautiful lake, pleasant weather, and charming hill station atmosphere.", latitude: 29.3919, longitude: 79.4549, state: "Uttarakhand" },
   "Mussoorie": { description: "A hill station known for its pleasant weather, scenic views, and colonial architecture.", latitude: 30.4598, longitude: 78.3844, state: "Uttarakhand" },
   "Chikmagalur": { description: "Known for its coffee plantations, lush green hills, and pleasant climate.", latitude: 13.3188, longitude: 75.7804, state: "Karnataka" },
-  "Shillong": { description: "The Scotland of the East, offering beautiful landscapes, waterfalls, and colonial architecture.", latitude: 25.5788, longitude: 91.8933, state: "Meghalaya" }
+  "Shillong": { description: "The Scotland of the East, offering beautiful landscapes, waterfalls, and colonial architecture.", latitude: 25.5788, longitude: 91.8933, state: "Meghalaya" },
+  "Agra": { description: "Home to the Taj Mahal, a UNESCO World Heritage site and one of the Seven Wonders of the World.", latitude: 27.1767, longitude: 78.0081, state: "Uttar Pradesh" },
+  "Varanasi": { description: "One of the oldest cities in the world, known for its ghats, temples, and spiritual significance.", latitude: 25.3176, longitude: 82.9739, state: "Uttar Pradesh" },
+  "Rishikesh": { description: "A spiritual town on the banks of the Ganges, famous for yoga, river rafting, and beautiful landscapes.", latitude: 30.0869, longitude: 78.2676, state: "Uttarakhand" },
+  "Amritsar": { description: "Known for the Golden Temple, a significant Sikh pilgrimage site, and vibrant Punjabi culture.", latitude: 31.6340, longitude: 74.8723, state: "Punjab" },
+  "Jaipur": { description: "The Pink City, famous for its palaces, forts, and vibrant culture.", latitude: 26.9124, longitude: 75.7873, state: "Rajasthan" },
+  "Jodhpur": { description: "Known as the Blue City, featuring the majestic Mehrangarh Fort and blue-painted houses.", latitude: 26.2389, longitude: 73.0243, state: "Rajasthan" },
+  "Udaipur": { description: "The City of Lakes, known for its royal palaces, lakes, and romantic atmosphere.", latitude: 24.5854, longitude: 73.7125, state: "Rajasthan" }
 };
+
 
 async function getPlacePhotos(placeName) {
   try {

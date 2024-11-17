@@ -89,16 +89,47 @@ app.post("/login",async (req,res,next)=>{
 
 })
 
+//api for collections
 
 
+app.get('/api/collections', async (req, res) => {
+  const db = mongoose.connection.db; // Access native MongoDB connection
+    const offbeatcollection = db.collection('offbeatdata'); 
+    const heritage=db.collection('topheritage');
+    const hillstations=db.collection('tophillstations');
+    const beaches=db.collection('topbeaches');
+    
 
+  try {
+    const offbeat = await offbeatcollection.findOne({});
+    const heritageData = await heritage.findOne({});
+    const hillstationsData = await hillstations.findOne({});
+    const beachesData = await beaches.findOne({});
+   
 
-app.post("/push/offbeat" ,async (req, res)=>{
+    const collections = [
+      { collectionName: 'offbeatdata', dataone: offbeat,name:"offbeatgems"},
+      { collectionName: 'topheritage', dataone: heritageData,name:"Heritage Destinations"},
+      { collectionName: 'tophillstations', dataone: hillstationsData,name:"Hillstations"},
+      { collectionName: 'topbeaches', dataone: beachesData,name:"Beach Destinations"},
+     
+      
+    ];
+
+    res.json(collections);
+  } catch (error) {
+    console.error("Error fetching collections:", error);
+    res.status(500).json({ error: "Failed to fetch collections" });
+  }
+});
+//api to push famoust places trips.
+
+app.post("/push/trips" ,async (req, res)=>{
   try{
-   const response=await fetchalleleven()
+   const response=await fetchAllPlacePhotos()
    console.log(response)
    const db = mongoose.connection.db; // This gets the underlying native MongoDB connection
-    const collection = db.collection('topheritage');
+    const collection = db.collection('alltripsdata');
 
     const result = await collection.insertMany(response);
     res.send(response);
@@ -109,6 +140,49 @@ app.post("/push/offbeat" ,async (req, res)=>{
     res.status(500).send("Server Error");
   }
 })
+
+
+
+
+app.post("/push/offbeat" ,async (req, res)=>{
+  try{
+   const response=await fetchalleleven()
+   console.log(response)
+   const db = mongoose.connection.db; // This gets the underlying native MongoDB connection
+    const collection = db.collection('tophillstations');
+
+    const result = await collection.insertMany(response);
+    res.send(response);
+   //console.log(response)
+  }
+  catch(err){
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
+})
+
+// api to get collection data
+
+app.get("/api/collections/:collectionName", async (req, res) => {
+  const { collectionName } = req.params;
+  try {
+    const db = mongoose.connection.db; 
+    const collection = db.collection(collectionName); // Access the 'alltrips' collection
+
+    
+    const trips = await collection.find({}).toArray();
+    console.log(collectionName,trips)
+
+    // Respond with the list of trips
+    res.status(200).json({
+      trips,
+    });
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
+});
+
 app.get("/gettrips", async (req, res) => {
   try {
     const db = mongoose.connection.db; // Access native MongoDB connection
@@ -140,13 +214,11 @@ app.get("/api/getstaysaround",async (req,res)=>{
     const response=await fetchNearbystays(lat,lng)
     console.log(response)
     res.send(response)
-
   }
   catch(err){
     console.error(err.message);
     res.status(500).send("Server Error");
   }
-
 
 })
 
@@ -210,7 +282,7 @@ app.get('/api/gethotels', async (req, res) => {
 
   try {
     const response = await axios.get(url);
-    //console.log(response)
+    console.log(response)
     res.json(response.data); // Send the data back to the frontend
   } catch (error) {
     console.error('Error fetching hotels:', error.message);
