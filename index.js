@@ -36,7 +36,9 @@ const connectDB = async () => {
     process.exit(1); // Exit with failure code
   }
 };
-
+app.get("/test",(req,res)=>{
+  res.send("test success")
+})
 app.post("/signup",async (req, res) => {
   try {
     const existingUser = await User.findOne({ email });
