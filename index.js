@@ -37,7 +37,7 @@ const connectDB = async () => {
   }
 };
 app.get("/test",(req,res)=>{
-  res.send("test success")
+  res.send("successfully added CD")
 })
 app.post("/signup",async (req, res) => {
   try {
