@@ -20,7 +20,7 @@ jobs:
           username: ubuntu
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            cd /home/ubuntu/backend-booking
+            cd /home/ubuntu/booking-backend
             git pull origin main
             npm install
             pm2 restart backend-booking
