@@ -37,7 +37,7 @@ const connectDB = async () => {
   }
 };
 app.get("/test",(req,res)=>{
-  res.send("successfully added CD")
+  res.send("successfully added C")
 })
 app.post("/signup",async (req, res) => {
   try {
@@ -295,7 +295,7 @@ app.get('/api/gethotels', async (req, res) => {
 
 app.listen(PORT, () => {
   connectDB();
-  console.log(`Server running on port ${PORT}`);
+  console.log(`Server running on pot ${PORT} ${apiKey}`);
 });
 
 
