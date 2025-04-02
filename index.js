@@ -149,9 +149,9 @@ app.post("/push/trips" ,async (req, res)=>{
 app.post("/push/offbeat" ,async (req, res)=>{
   try{
    const response=await fetchalleleven()
-   console.log(response)
+   console.log(response,"p")
    const db = mongoose.connection.db; // This gets the underlying native MongoDB connection
-    const collection = db.collection('tophillstations');
+    const collection = db.collection('offbeatdata');
 
     const result = await collection.insertMany(response);
     res.send(response);
